@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RegistroProductos.MainPage"
+    Title="Registro de Productos">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+
+        <Label
+            Text="Registro de Productos"
+            FontSize="24"
+            HorizontalOptions="Center"
+            Margin="0,0,0,20" />
+
+        <Entry
+            x:Name="nombreEntry"
+            Placeholder="Nombre del producto" />
+
+        <Entry
+            x:Name="descripcionEntry"
+            Placeholder="Descripción" />
+
+        <Entry
+            x:Name="precioEntry"
+            Placeholder="Precio"
+            Keyboard="Numeric" />
+
+        <Entry
+            x:Name="cantidadEntry"
+            Placeholder="Cantidad"
+            Keyboard="Numeric" />
+
+        <Button
+            Text="Guardar"
+            Clicked="OnGuardarClicked"
+            Margin="0,20,0,0"
+            BackgroundColor="#0078D7"
+            TextColor="White" />
+
+        <Label
+            Text="Lista de productos"
+            FontSize="18"
+            HorizontalOptions="Center"
+            Margin="0,15,0,5" />
+
+        <CollectionView x:Name="productosList">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <VerticalStackLayout Padding="10">
+
+                        <Label
+                            Text="{Binding Nombre}"
+                            FontAttributes="Bold" />
+
+                        <Label
+                            Text="{Binding Descripcion}"
+                            FontSize="12" />
+
+                        <Label
+                            Text="{Binding Precio, StringFormat='Precio: {0:C}'}" />
+
+                        <Label
+                            Text="{Binding Cantidad, StringFormat='Cantidad: {0}'}" />
+
+                    </VerticalStackLayout>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </VerticalStackLayout>
+
+</ContentPage>
